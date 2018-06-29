@@ -1,5 +1,5 @@
 
-###tp_dealabs_javascript
+### tp_dealabs_javascript
 ---------------------------------------
 
 [] récuperer données 'INCOMPLET'
@@ -7,7 +7,7 @@
 [] index.html 'INCOMPLET'
 
 ---------------------------------------
-##descriptif du projet
+## descriptif du tp
 ---------------------------------------
 -les données sont récuperer sur la page du site avec *request* et *cheerio* le script 'script.js' étant éxécuté par Node.js car probleme de CORS et allow Acess
 
@@ -18,7 +18,7 @@
 
 ---------------------------------------
 
-##installation
+## installation
 
 - *npm install request cheerio*
 - *npm install -g request cheerio*
@@ -28,20 +28,6 @@
 - *npm install fs*
 - *npm start*
 
-###'les données présentes dans 'data.txt' sont celles qui ont été obtenues depuis le dernier lancement de 'script.js' via 'node script.js'
+### 'les données présentes dans 'data.txt' sont celles qui ont été obtenues depuis le dernier lancement de 'script.js' via 'node script.js'
 
 ---------------------------------------
-
-
-# Go into the repository
-cd electron-quick-start
-# Install dependencies
-npm install
-# Run the app
-npm start
-```
-
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
-
-
-[CC0 1.0 (Public Domain)](LICENSE.md)
