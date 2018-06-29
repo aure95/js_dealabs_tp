@@ -1,26 +1,38 @@
-# electron-quick-start
 
-**Clone and run for a quick way to see Electron in action.**
+###tp_dealabs_javascript
+---------------------------------------
 
-This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start) within the Electron documentation.
+[] récuperer données 'INCOMPLET'
+[] parsing 'INCOMPLET'
+[] index.html 'INCOMPLET'
 
-**Use this app along with the [Electron API Demos](https://electronjs.org/#get-started) app for API code examples to help you get started.**
+---------------------------------------
+##descriptif du projet
+---------------------------------------
+-les données sont récuperer sur la page du site avec *request* et *cheerio* le script 'script.js' étant éxécuté par Node.js car probleme de CORS et allow Acess
 
-A basic Electron application needs just these files:
+-à partir de ce moment j'arrive a récuperer (des données mais pas celle que je veux) mais je ne peux plus modifier le dom de 'index.html', la seule facon que j'ai trouvé est de parser les données et les insérer dans un fichier texte
+ 'data.txt' pour par la suite les recuperer via le fichier 'data.txt' par le script 'gestion_index.js' qui est chargé d'afficher les données recues dans index.html ('balise div id="affichage"')
 
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
+-l'appui sur le bouton 'refresh' recharge la page et devait simultanément recharger les nouvelles offres présent sur la page du site.
 
-You can learn more about each of these components within the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start).
+---------------------------------------
 
-## To Use
+##installation
 
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+- *npm install request cheerio*
+- *npm install -g request cheerio*
+- *npm install request*
+- *npm install request-promise*
+- *npm install jsdom*
+- *npm install fs*
+- *npm start*
 
-```bash
-# Clone this repository
-git clone https://github.com/electron/electron-quick-start
+###'les données présentes dans 'data.txt' sont celles qui ont été obtenues depuis le dernier lancement de 'script.js' via 'node script.js'
+
+---------------------------------------
+
+
 # Go into the repository
 cd electron-quick-start
 # Install dependencies
@@ -31,15 +43,5 @@ npm start
 
 Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
 
-## Resources for Learning Electron
-
-- [electronjs.org/docs](https://electronjs.org/docs) - all of Electron's documentation
-- [electronjs.org/community#boilerplates](https://electronjs.org/community#boilerplates) - sample starter apps created by the community
-- [electron/electron-quick-start](https://github.com/electron/electron-quick-start) - a very basic starter Electron app
-- [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
-- [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
-
-## License
 
 [CC0 1.0 (Public Domain)](LICENSE.md)

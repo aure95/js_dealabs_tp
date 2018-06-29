@@ -5,6 +5,13 @@ function recupererDATA()
    
 }
 
+function refresh()
+{
+	var data=recupererDATA();
+	$("#affichage").append('<article class="case">yiotuiçàyruioyjurioyfefyju</article>');
+}
+
+
 
 function clicked()
 {
@@ -13,10 +20,14 @@ function clicked()
 	//console.log(color.toString());
 	$("#refresh").css("background-color","green");
 	location.reload();
+	recupererDATA;
+
 	
 	//$("#refresh").css("background-color",color);
 }
 
-$("#affichage").append('<article class="case">yiotuiçàyruioyjurioyfefyju</article>');
+
 
 $("#refresh").click(clicked);
+
+refresh();
