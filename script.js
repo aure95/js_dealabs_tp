@@ -5,6 +5,7 @@ const request = require('request');
 var fs = require('fs');
 
 var txt="";
+const motif="!";
 
 
 
@@ -124,25 +125,42 @@ console.log("\nDATA WRITED: data.txt \n");
 }
 
 
-var data=[];
+
+function getDATA()
+{
+
 
 request('https://www.dealabs.com/nouveaux', function (error, response, html) {
-  if (!error && response.statusCode == 200) {
+  if (!error && response.statusCode == 200) 
+  {
     var $ = cheerio.load(html);
+    var data=[];
+    
    //console.log(html);
    
    
 
-    $('article').each(function(i, element){
+    $('article').each(function(i, element)
+    {
      var a = $(this).prev();
-      console.log(a.text());
-      data.push(a.text());
-      writeTXT(data);
-
-    });
+     //console.log(a.text());
+     var donnees=a.text();
+     data.push(a.text());
+     //data+=motif+a.text()+motif;
+	});
+	for(var i=0;i<data.length;i++)
+	{
+	 console.log("\n");
+     console.log(data[i]);
+     console.log("\n");
+	}
+	writeTXT(data);
   }
 });
-
+	
+    
+	
+}
 
 
 
@@ -152,6 +170,8 @@ request('https://www.dealabs.com/nouveaux', function (error, response, html) {
 });
 */
 
+
+getDATA();
 
 
 
