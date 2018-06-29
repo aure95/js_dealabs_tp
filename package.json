@@ -20,6 +20,12 @@
     "electron": "^2.0.0"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "fs": "0.0.1-security",
+    "jquery": "^3.3.1",
+    "jsdom": "^11.11.0",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
     "xmlhttprequest": "^1.8.0"
   }
 }

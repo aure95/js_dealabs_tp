@@ -1,4 +1,23 @@
 
+const rp = require('request-promise');
+const cheerio = require('cheerio');
+const request = require('request');
+var fs = require('fs');
+
+var txt="";
+
+
+
+
+//https://www.npmjs.com/package/jquery
+var jsdom = require('jsdom');
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('')).window;
+global.document = document;
+
+
+
 
 /*
 var jsdom = require('jsdom')
@@ -47,6 +66,7 @@ function URLtoJSON()
     });
 }
 */
+/*
 function makeHttpObject() {
   try {return new XMLHttpRequest();}
   catch (error) {}
@@ -58,13 +78,13 @@ function makeHttpObject() {
   throw new Error("Could not create HTTP request object.");
 }
 
+*/
 
-
-console.log("Debut2");
+console.log("Debut");
 
 //connexionHTML(siteNameNew);
 //URLtoJSON();
-var request = makeHttpObject();
+/*var request = makeHttpObject();
 request.open("GET","https://www.dealabs.com/nouveaux", true);
 request.send(null);
 request.onreadystatechange = function() {
@@ -72,7 +92,67 @@ request.onreadystatechange = function() {
     alert(request.responseText);
 };
 
-
+*/
 //document.getElementById("affichage").innerHTML="tametreurry";
+/*
+const options = {
+  uri: "https://www.dealabs.com/nouveaux",
+  transform: function (body) {
+    return cheerio.load(body);
+  }
+};*/
+/*
+rp(options)
+  .then(($) => {
+    console.log($);
+
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+*/
+
+function writeTXT(data)
+{
+fs.writeFile('data.txt', data,  function(err) {
+   if (err) {
+      return console.error(err);
+   }
+});
+
+console.log("\nDATA WRITED: data.txt \n");
+}
+
+
+var data=[];
+
+request('https://www.dealabs.com/nouveaux', function (error, response, html) {
+  if (!error && response.statusCode == 200) {
+    var $ = cheerio.load(html);
+   //console.log(html);
+   
+   
+
+    $('article').each(function(i, element){
+     var a = $(this).prev();
+      console.log(a.text());
+      data.push(a.text());
+      writeTXT(data);
+
+    });
+  }
+});
+
+
+
+
+/*$(".cept-tt thread-link linkPlain thread-title--list").each(function(i, elem) {
+  var t = $(this).prev();
+  console.log(t.text());
+});
+*/
+
+
+
 
 console.log("Fin");
