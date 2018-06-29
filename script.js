@@ -114,17 +114,21 @@ rp(options)
 */
 function parseData(data)
 {
+	data_parse=[]
 	for(var i=0;i<data.length;i++)
 	{
-		var data_model=data[i].split("  ")
-		console.log("/////////////"+ i.toString()+"//////////////\n");
+		var data_model=data[i].split("\n\t")
+		//console.log("/////////////"+ i.toString()+"  "+"//////////////\n");
 
+	
 		for(var e=0;e<data_model.length;e++)
-			console.log(e.toString()+data_model+"\n")
+			//console.log(e.toString()+data_model[e]+"\n")
 
+		data_parse.push(data_model);
+    
 	}
 	
-
+	return data_parse;
 }
 
 function writeTXT(data)
@@ -158,45 +162,61 @@ request('https://www.dealabs.com/nouveaux', function (error, response, html) {
     {
      var a = $(this).prev();
 
-     //var lien = a.attr('href')
+     var lien = a.attr('href')
     // console.log(lien);
+     
+    // console.log(a.text());
 
-     //console.log(a.text());
    //  var titre=a.attr('title');
      //console.log(titre);
      //console.log(a.text());
     // var donnees=a.text();
-    // data.push(a.text());
-    data.push(a.text());
+      data.push("///////////"+a.text()+"///////////");
+  //  data.push(a.text());
      //console.log("\n");
+     
+
 
       //writeTXT(html);
      //data+=motif+a.text()+motif;
 	});
 
 	var selector_prix=".thread-price text--b vAlign--all-tt cept-tp size--all-l size--fromW3-xl";
-
-	$(selector_prix).each(function(i, element)
+    /*
+    $('.threadGrid-title').each(function(i, element)
     {
-     var a = $(this).prev();
-     console.log(a);
+     var a = $(this);
+     var id=a.attr('id');
+     var lien=a.attr('href');
+     var title=a.attr('title');
+
+    
+
+     console.log(id);
+     console.log(lien);
+     console.log(title);
+
+     //console.log(a.text());
+
 
      //var lien = a.attr('href')
     // console.log(lien);
+     
+    // console.log(a.text());
 
-     //console.log(a.text());
    //  var titre=a.attr('title');
      //console.log(titre);
      //console.log(a.text());
     // var donnees=a.text();
     // data.push(a.text());
-    
+  //  data.push(a.text());
      //console.log("\n");
+     
 
       //writeTXT(html);
      //data+=motif+a.text()+motif;
 	});
-   
+	*/
    
    // parseData(data);
     writeTXT(data);
@@ -213,13 +233,18 @@ request('https://www.dealabs.com/nouveaux', function (error, response, html) {
 	*/
 	
 	
-	//parseData(data);
+	var data_parse=parseData(data);
+
+
+	for(i=0;i<data_parse[1].length;i++)
+	console.log(i.toString()+" "+data_parse[1][i]);
 
 	
 	//console.log(data);
-
+ ////   
+   
     
-
+//////////////////
   }
 });
 	
@@ -238,6 +263,7 @@ request('https://www.dealabs.com/nouveaux', function (error, response, html) {
 
 
 getDATA();
+window.document.getElementById("affichage").innerHTML="toto";
 
 
 
