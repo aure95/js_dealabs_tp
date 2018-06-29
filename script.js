@@ -11,11 +11,11 @@ const motif="!";
 
 
 //https://www.npmjs.com/package/jquery
-var jsdom = require('jsdom');
-const { JSDOM } = jsdom;
+var call_jsdom = require('jsdom');
+/*const { JSDOM } = jsdom;
 const { window } = new JSDOM();
 const { document } = (new JSDOM('')).window;
-global.document = document;
+global.document = document;*/
 
 
 
@@ -171,7 +171,7 @@ request('https://www.dealabs.com/nouveaux', function (error, response, html) {
      //console.log(titre);
      //console.log(a.text());
     // var donnees=a.text();
-      data.push("///////////"+a.text()+"///////////");
+      data.push(a.text());
   //  data.push(a.text());
      //console.log("\n");
      
@@ -263,8 +263,6 @@ request('https://www.dealabs.com/nouveaux', function (error, response, html) {
 
 
 getDATA();
-window.document.getElementById("affichage").innerHTML="toto";
-
-
+//window.document.getElementById("affichage").innerHTML="toto";
 
 console.log("Fin");
